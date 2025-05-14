@@ -6,7 +6,7 @@
 }
 
 body {
-    background: color #2e2b2b;
+    background-color: black;
     color: #fff;
 }
 
@@ -19,7 +19,7 @@ body {
 }
 
 .container{
-    padding: 10px 10%;
+    padding: 20px 10%;
 }
 
 nav{
@@ -73,4 +73,37 @@ nav ul li a:hover::after{
 
 .header-text h1 span{
     color: #d4af37;
+}
+
+#about{
+    padding: 500px 0;
+    color: #ababab;
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex;
+    flex-wrap: wrap;
+
+}
+
+.about-col-1{
+    flex-basis: 40%;
+}
+
+.about-col-1 img{
+    width: 100%;
+    border-radius: 15px;
+}
+
+.about-col-2{
+    flex-basis: 55%;
+    padding: 20px;
+}
+
+.sub-title{
+    font-size: 60px;
+    font-weight: 600;
+    color:#fff;
 }
