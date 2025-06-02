@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #080808;
     color: #fff;
@@ -97,7 +101,7 @@ nav ul li a:hover::after{
 .about-col-1 img{
     width: 100%;
     border-radius: 15px;
-    height: 500px;
+    height: 400px;
 }
 
 .about-col-2{
@@ -332,6 +336,10 @@ nav ul li a:hover::after{
     background: #d4af37;
 }
 
+.btn.btn2:hover{
+    background: #e4b305;
+}
+
 .contact-right form{
     width: 100%;
 }
@@ -362,10 +370,81 @@ form .btn2{
     background: #262626;
     font-weight: 300;
     margin-top: 20px;
-    bottom: 0;
 
 }
 
 .copyright i{
     color: #d4af37;
 }
+
+/*------------css for small screen-------*/
+nav .fa-solid{
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    #header{
+        background-image: url(images/BG3.png);
+    }
+    .header-text{
+        margin-top: 170%;
+        font-size: 25px;
+    }
+    .header-text h1{
+        font-size: 40px;
+    }
+    nav .fa-solid{
+        display: block;
+        font-size: 25px;
+    }
+    nav ul{
+        background: #d4af37;
+        position: fixed;
+        top: 0;
+        right: -200px;
+        width: 200px;
+        height: 100vh;
+        padding-top: 50px;
+        z-index: 2;
+        transition: right 0.5s;
+    }
+    nav ul li{
+        display: block;
+        margin: 25px;
+    }
+    nav ul .fa-solid{
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        cursor: pointer;
+    }
+    .sub-title{
+        font-size: 50px;
+    }
+    .about-col-1, .about-col-2{
+        flex-basis: 100%;
+    }
+    .about-col-1{
+        margin-bottom: 30px;
+    }
+    .about-col-2{
+        font-size: 14px;
+    }
+    .tab-links{
+        font-size: 16px;
+        margin-right: 20px;
+    }
+    .contact-left, .contact-right{
+        flex-basis: 100%;
+    }
+    .copyright{
+        font-size: 14px;
+    }
+    
+}
+#msg{
+        color: #d4af37;
+        display: block;
+        margin-top: -40px;
+    }
+

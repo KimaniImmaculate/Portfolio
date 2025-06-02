@@ -12,13 +12,15 @@
         <div class="container">
             <nav>
                 <img src="images/logo2.jpg" class="logo">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Contact</a></li>
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
                 </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
             </nav>
             <div class="header-text">
                 <p>FrontEnd Developer</p>
@@ -32,7 +34,7 @@
         <div class="container">
             <div class="row">
                 <div class="about-col-1">
-                    <img src="images/ME2.jpg">
+                    <img src="images/ME3.jpg">
                 </div>
                 <div class="about-col-2">
                     <h1 class="sub-title">About Me</h1>
@@ -138,7 +140,7 @@
 </div>
 
 <!-----------contact--------->
-<div class="contact">
+<div id="contact">
     <div class="container">
         <div class="row">
         <div class="contact-left">
@@ -154,13 +156,13 @@
             
         </div>
         <div class="contact-right">
-            <form>
+            <form name="submit-to-google-sheet">
                 <input type="text" name="Name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                <input type="email" name="Email" placeholder="Your Email" required>
+                <textarea name="Message" rows="6" placeholder="Your Message" required></textarea>
                 <button type="submit" class="btn btn2">Submit</button>
-
             </form>
+            <span id="msg"></span>
           </div>
         </div>
     </div>
@@ -186,5 +188,37 @@
             document.getElementById(tabname).classList.add("active-tab")
         }
     </script>
+
+    <script>
+        var sidemenu = document.getElementById("sidemenu");
+        function openmenu(){
+            sidemenu.style.right = "0";
+        }
+        function closemenu(){
+            sidemenu.style.right = "-200px";
+        }
+
+    </script>
+
+    <script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwGYnPitoPOSMyzvC_X24HjheCKrOprq7AFEkqPaEJvJpgyhr_2JXssIqFeyzv5Nam9ng/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const msg = document.getElementById("msg")
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        msg.innerHTML = "Message sent successfully :)"
+        setTimeout(function(){
+            msg.innerHTML =""
+        }, 6000)
+        form.reset()
+        })
+      .catch(error => console.error('Error!', error.message))
+    })
+</script>
+
+
 </body>
 </html>
