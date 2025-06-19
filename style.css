@@ -23,7 +23,7 @@ body {
 }
 
 .container{
-    padding: 10px 10%;
+    padding: 10px 8%;
 }
 
 nav{
@@ -31,10 +31,30 @@ nav{
     justify-content: space-between;
     align-items: center; 
     flex-wrap: wrap;
+    transition: box-shadow 0.9s ease out;
+}
+
+.fixed-nav nav{
+    position: fixed;
+    box-shadow: 0 5px 15px rgba(173, 163, 17, 0.836);
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #080808;
+    z-index: 1000;
+}
+
+body.fixed-nav{
+    padding-top: 80px;
 }
 
 .logo{
     width: 140px;
+    transition: all 5s;
+}
+
+.fixed-nav .logo{
+    max-width: 500px;
 }
 
 nav ul li{

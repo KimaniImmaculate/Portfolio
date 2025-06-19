@@ -10,7 +10,7 @@
 <body>
     <div id="header">
         <div class="container">
-            <nav>
+            <nav id="main">
                 <img src="images/logo2.jpg" class="logo">
                 <ul id="sidemenu">
                     <li><a href="#header">Home</a></li>
@@ -217,6 +217,22 @@
         })
       .catch(error => console.error('Error!', error.message))
     })
+</script>
+
+<script>
+    const nav=document.querySelector('#main');
+    const topOfNav=nav.offsetTop;
+
+    function fixNav() {
+        if(window.scrollY >= topOfNav) {
+            document.body.style.paddingTop = nav.offsetHeight + 'px';
+            document.body.classList.add('fixed-nav');
+        } else {
+            document.body.style.paddingTop = 0;
+            document.body.classList.remove('fixed-nav');
+        }
+    }
+    window.addEventListener('scroll', fixNav);
 </script>
 
 
